@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD1A85DF230306DC0091BC4F /* Identifo.h in Headers */ = {isa = PBXBuildFile; fileRef = CD1A85DD230306DC0091BC4F /* Identifo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD1A85E2230306DC0091BC4F /* Identifo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1A85DB230306DB0091BC4F /* Identifo.framework */; };
 		CD1A85E3230306DC0091BC4F /* Identifo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD1A85DB230306DB0091BC4F /* Identifo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CD1A85EA230307210091BC4F /* IdentifoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1A85E9230307210091BC4F /* IdentifoManager.swift */; };
@@ -78,7 +77,6 @@
 
 /* Begin PBXFileReference section */
 		CD1A85DB230306DB0091BC4F /* Identifo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Identifo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD1A85DD230306DC0091BC4F /* Identifo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Identifo.h; sourceTree = "<group>"; };
 		CD1A85DE230306DC0091BC4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD1A85E9230307210091BC4F /* IdentifoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifoManager.swift; sourceTree = "<group>"; };
 		CD1A85EB2303098C0091BC4F /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 				CDD5A282234F70A5008175A0 /* Utilities */,
 				CD1A85EB2303098C0091BC4F /* Context.swift */,
 				CD1A85E9230307210091BC4F /* IdentifoManager.swift */,
-				CD1A85DD230306DC0091BC4F /* Identifo.h */,
 				CD1A85DE230306DC0091BC4F /* Info.plist */,
 			);
 			path = Identifo;
@@ -291,7 +288,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD1A85DF230306DC0091BC4F /* Identifo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
