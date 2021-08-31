@@ -33,9 +33,8 @@ public final class IdentifoManager {
         self.context = context
         self.session = session
     }
-    
+     
     @discardableResult
-    
     public func registerWith(username: String, password: String, completion: @escaping (Result<IdentifoSuccess, Error>) -> Void) -> Task {
         send(RegisterWithUsername(username: username, password: password)) { [weak self] result in
             guard let self = self else { return }
@@ -43,6 +42,7 @@ public final class IdentifoManager {
         }
     }
     
+    @discardableResult
     public func loginWith(username: String, password: String, completion: @escaping (Result<IdentifoSuccess, Error>) -> Void) -> Task {
         send(LogInWithUsername(username: username, password: password)) { [weak self] result in
             guard let self = self else { return }
@@ -50,6 +50,7 @@ public final class IdentifoManager {
         }
     }
     
+    @discardableResult
     public func requestPhoneCode(phoneNumber: String, completion: @escaping (Result<IdentifoSuccess, Error>) -> Void) -> Task {
         send(RequestPhoneCode(phone: phoneNumber)) { result in
             switch result {
@@ -61,6 +62,7 @@ public final class IdentifoManager {
         }
     }
     
+    @discardableResult
     public func loginWith(phoneNumber: String, verificationCode: String, completion: @escaping (Result<IdentifoSuccess, Error>) -> Void) -> Task {
         send(PhoneLogin(phone: phoneNumber, verificationCode: verificationCode)) { [weak self] result in
             guard let self = self else { return }
@@ -68,6 +70,7 @@ public final class IdentifoManager {
         }
     }
     
+    @discardableResult
     public func federatedLogin(provider: FederatedProvider, authorizationCode: String, completion: @escaping (Result<IdentifoSuccess, Error>) -> Void) -> Task {
         send(FederatedLogin(provider: provider, authorizationCode: authorizationCode)) { [weak self] result in
             guard let self = self else { return }
@@ -75,6 +78,7 @@ public final class IdentifoManager {
         }
     }
     
+    @discardableResult
     public func deanonymizeUser(completion: @escaping (Result<IdentifoSuccess, Error>) -> Void) -> Task {
         // TODO: Update if needed
         send(CheckIfSignedIn()) { result in
@@ -87,6 +91,7 @@ public final class IdentifoManager {
         }
     }
     
+    @discardableResult
     public func resetPassword(email: String, completion: @escaping (Result<IdentifoSuccess, Error>) -> Void) -> Task  {
         // TODO: Test
         send(ResetPassword(email: email)) { result in
@@ -99,6 +104,7 @@ public final class IdentifoManager {
         }
     }
     
+    @discardableResult
     public func renewAccessToken(completion: @escaping (Result<IdentifoSuccess, Error>) -> Void) -> Task  {
         send(RenewAccessToken()) { result in
             switch result {
@@ -110,6 +116,7 @@ public final class IdentifoManager {
         }
     }
     
+    @discardableResult
     public func logout(completion: @escaping (Result<IdentifoSuccess, Error>) -> Void) -> Task  {
         send(LogOut()) { [weak self] result in
             guard let self = self else { return }

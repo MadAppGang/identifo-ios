@@ -56,7 +56,7 @@ final class SignUpWithUsernameVC: UIViewController, AlertableViewController {
         
         identifo.registerWith(username: username, password: password) { result in
             do {
-                let entity = try result.get()
+                let _ = try result.get()
                 self.performSegue(withIdentifier: "unwindToInitialVC", sender: self)
             } catch let error {
                 self.showErrorMessage(error)
