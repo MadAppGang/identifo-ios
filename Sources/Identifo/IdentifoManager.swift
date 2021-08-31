@@ -152,9 +152,13 @@ extension IdentifoManager {
                 }
                 
                 let networkResponse = try T.IdentifoSuccess(identifoBody: data)
-                completionHandler(.success(networkResponse))
+                DispatchQueue.main.async {
+                    completionHandler(.success(networkResponse))
+                }
             } catch let error {
-                completionHandler(.failure(error))
+                DispatchQueue.main.async {
+                    completionHandler(.failure(error))
+                }
             }
         }
     }
