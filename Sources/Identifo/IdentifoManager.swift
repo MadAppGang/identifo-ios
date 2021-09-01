@@ -35,7 +35,7 @@ public final class IdentifoManager {
     }
      
     @discardableResult
-    public func registerWith(username: String, password: String, completion: @escaping (Result<IdentifoSuccess, Error>) -> Void) -> Task {
+    public func registerWith(username: String, password: String, completion: @escaping (Result<AuthInfo, Error>) -> Void) -> Task {
         send(RegisterWithUsername(username: username, password: password)) { [weak self] result in
             guard let self = self else { return }
             self.handleAuthResult(result: result, completion: completion)
@@ -43,7 +43,7 @@ public final class IdentifoManager {
     }
     
     @discardableResult
-    public func loginWith(username: String, password: String, completion: @escaping (Result<IdentifoSuccess, Error>) -> Void) -> Task {
+    public func loginWith(username: String, password: String, completion: @escaping (Result<AuthInfo, Error>) -> Void) -> Task {
         send(LogInWithUsername(username: username, password: password)) { [weak self] result in
             guard let self = self else { return }
             self.handleAuthResult(result: result, completion: completion)
@@ -63,7 +63,7 @@ public final class IdentifoManager {
     }
     
     @discardableResult
-    public func loginWith(phoneNumber: String, verificationCode: String, completion: @escaping (Result<IdentifoSuccess, Error>) -> Void) -> Task {
+    public func loginWith(phoneNumber: String, verificationCode: String, completion: @escaping (Result<AuthInfo, Error>) -> Void) -> Task {
         send(PhoneLogin(phone: phoneNumber, verificationCode: verificationCode)) { [weak self] result in
             guard let self = self else { return }
             self.handleAuthResult(result: result, completion: completion)
@@ -71,7 +71,7 @@ public final class IdentifoManager {
     }
     
     @discardableResult
-    public func federatedLogin(provider: FederatedProvider, authorizationCode: String, completion: @escaping (Result<IdentifoSuccess, Error>) -> Void) -> Task {
+    public func federatedLogin(provider: FederatedProvider, authorizationCode: String, completion: @escaping (Result<AuthInfo, Error>) -> Void) -> Task {
         send(FederatedLogin(provider: provider, authorizationCode: authorizationCode)) { [weak self] result in
             guard let self = self else { return }
             self.handleAuthResult(result: result, completion: completion)
@@ -163,11 +163,11 @@ extension IdentifoManager {
         }
     }
     
-    private func handleAuthResult(result: Result<AuthInfo, Error>, completion: @escaping (Result<IdentifoSuccess, Error>) -> Void) {
+    private func handleAuthResult(result: Result<AuthInfo, Error>, completion: @escaping (Result<AuthInfo, Error>) -> Void) {
         switch result {
-        case .success(let data):
-            self.saveTokens(from: data)
-            completion(.success(data))
+        case .success(let authInfo):
+            self.saveTokens(from: authInfo)
+            completion(.success(authInfo))
             
         case .failure(let error):
             completion(.failure(error))
