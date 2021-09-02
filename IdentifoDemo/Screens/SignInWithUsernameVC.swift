@@ -56,7 +56,7 @@ final class SignInWithUsernameVC: UIViewController, AlertableViewController {
         identifo.loginWith(username: username, password: password) { result in
             switch result {
             case .success(let authInfo):
-                print(authInfo.accessToken)
+                print(authInfo.accessToken ?? "")
                 self.performSegue(withIdentifier: "unwindToInitialVC", sender: self)
             case .failure(let error):
                 self.showErrorMessage(error)

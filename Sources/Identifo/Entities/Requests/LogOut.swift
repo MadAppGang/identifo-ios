@@ -33,7 +33,7 @@ extension LogOut: IdentifoRequest {
     public typealias IdentifoFailure = IdentifoError
     
     public func identifoURLPath(in context: Context) -> String {
-        return "/auth/logout"
+        return "/me/logout"
     }
     
     public func identifoMethod(in context: Context) -> String {
@@ -43,8 +43,8 @@ extension LogOut: IdentifoRequest {
     public func identifoBody(in context: Context) -> Data? {
         var json: [String: Any] = [:]
         
-        json["device_token"] = context.deviceToken
-        json["refresh_token"] = context.refreshToken
+//        json["device_token"] = context.deviceToken ?? ""
+        json["refresh_token"] = context.refreshToken ?? ""
 
         let data = try? Data(json: json)
         return data

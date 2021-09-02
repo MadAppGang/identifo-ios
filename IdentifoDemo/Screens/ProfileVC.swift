@@ -74,14 +74,15 @@ final class ProfileVC: UIViewController, AlertableViewController {
     }
     
     @IBAction private func signOutButtonButtonPressed(_ sender: UIButton) {
-        identifo.logout { result in
-            do {
-                _ = try result.get()
+        identifo.logout { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success():
                 self.performSegue(withIdentifier: "unwindToInitialVC", sender: self)
-            } catch let error {
+                
+            case .failure(let error):
                 self.showErrorMessage(error)
             }
         }
     }
-
 }

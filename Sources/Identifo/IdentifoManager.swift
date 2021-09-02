@@ -117,13 +117,13 @@ public final class IdentifoManager {
     }
     
     @discardableResult
-    public func logout(completion: @escaping (Result<IdentifoSuccess, Error>) -> Void) -> Task  {
+    public func logout(completion: @escaping (Result<Void, Error>) -> Void) -> Task  {
         send(LogOut()) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(_):
                 self.removeTokens()
-                
+                completion(.success(()))
             case .failure(let error):
                 completion(.failure(error))
             }
