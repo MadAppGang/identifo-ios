@@ -26,7 +26,7 @@ github "MadAppGang/identifo-ios" "1.0.0"
 
 
 ## Setup
-Don't forget to import the library
+Import the library
 ```swift
 import Identifo
 ```
@@ -127,7 +127,7 @@ func loginWith(username: String, password: String, completion: @escaping (Result
 func requestPhoneCode(phoneNumber: String, completion: @escaping (Result<IdentifoSuccess, Error>) -> Void)
 func loginWith(phoneNumber: String, verificationCode: String, completion: @escaping (Result<AuthInfo, Error>) -> Void)
 // Federated login utilizes login options provided by Apple, Google, Facebook and Twitter
-federatedLogin(provider: FederatedProvider, authorizationCode: String, completion: @escaping (Result<AuthInfo, Error>) -> Void)
+func federatedLogin(provider: FederatedProvider, authorizationCode: String, completion: @escaping (Result<AuthInfo, Error>) -> Void)
 func deanonymizeUser(completion: @escaping (Result<IdentifoSuccess, Error>) -> Void)
 func resetPassword(email: String, completion: @escaping (Result<IdentifoSuccess, Error>) -> Void)
 func renewAccessToken(completion: @escaping (Result<IdentifoSuccess, Error>) -> Void)
