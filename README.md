@@ -1,34 +1,31 @@
 # Identifo iOS
 
 [![Swift](https://img.shields.io/badge/Swift-5.0+-Orange?style=flat-square)](https://img.shields.io/badge/Swift-5.0+-Orange?style=flat-square)
-[![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)]
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Alamofire.svg?style=flat-square)](https://img.shields.io/cocoapods/v/Alamofire.svg)
+[![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 
 Identifo iOS is an open library that allows you instantly and easily integrate the [Identifo](https://github.com/MadAppGang/identifo) authentication framework in your apps.
 
-## Setup
+
+## Installation
 
 ### SPM
-
 1) Head to Xcode -> File -> Swift Packages -> Add Package Dependency...
 2) Paste this link to the search bar: https://github.com/MadAppGang/identifo-ios
 3) Proceed with the installation
 
 ### CocoaPods
-
 ```ruby
 pod 'identifo-ios', '~> 1.0.0'
 ```
 
 ### Carthage
-
 ```ogdl
 github "MadAppGang/identifo-ios" "1.0.0"
 ```
 
-## Usage
 
+## Setup
 Don't forget to import the library
 ```swift
 import Identifo
@@ -58,6 +55,8 @@ class AuthManager {
 ```
 We recommend storing keys and IDs in the file ignored by the version control system or encrypting this file using [__git-secret__](https://git-secret.io)
 
+
+## Usage
 Here's how you can use Identifo functions in your implementation:
 ```swift
     func loginWith(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
@@ -109,7 +108,6 @@ For that, you can use auth0's [JWTDecode library](https://github.com/auth0/JWTDe
 ```
 
 ## Forming network requests with the access token
-
 When you've successfully authenticated your user and saved their access token you can use it to form network requests.
 Here's one way how you can do it:
 ```swift
