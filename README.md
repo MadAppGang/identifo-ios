@@ -33,9 +33,9 @@ import Identifo
 
 Setup IdentifoManager using Context. 
 Context needs 3 values to initialize: 
-⋅⋅* __apiURL__ (URL to Identifo on your backend)
-⋅⋅* __clientID__ (String - application access identifier defined on your backend)
-⋅⋅* __secretKey__ (String - HMAC shared secret key, also defined on your backend)
+* __apiURL__ (URL to Identifo on your backend)
+* __clientID__ (String - application access identifier defined on your backend)
+* __secretKey__ (String - HMAC shared secret key, also defined on your backend)
 
 ```swift
 class AuthManager {
